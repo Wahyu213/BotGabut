@@ -71,8 +71,9 @@ async def _(event):
         end = datetime.now()
         ms = (end - start).seconds
         OUTPUT_STR = """/protecc {prs_text}""".format(**locals())
-    await event.delete()
-    await event.reply(OUTPUT_STR, parse_mode="HTML", link_preview=False)
+    gabut = await event.reply(OUTPUT_STR, parse_mode="HTML", link_preview=False)
+    await sleep(2)
+    await gabut.delete()
 
 
 CMD_HELP.update(
